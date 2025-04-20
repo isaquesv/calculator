@@ -1,0 +1,186 @@
+#calculator table td,
+#calculator table th {
+    padding: 4px;
+    width: 25%;
+    height: 70px;
+    border: 0;
+    transition: 0.3s ease-in-out;
+}
+
+body.dark #calculator table td,
+body.dark #calculator table th {
+    background-color: #202020;
+}
+
+body.old #calculator table td,
+body.old #calculator table th {
+    background-color: #252D44;
+}
+
+.btn-calculator {
+    all: unset;
+    cursor: pointer;
+    border-radius: 12px;
+    background: #1e1e1e;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.button_top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 0;
+    color: #1e1e1e;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    transform: translateY(-4px);
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease-in-out, transform 0.15s ease;
+}
+
+.btn-calculator:hover .button_top,
+.btn-calculator.pressed .button_top {
+    transform: translateY(-6px);
+}
+
+.btn-calculator:active .button_top,
+.btn-calculator.active .button_top {
+    transform: translateY(0);
+}
+
+body.dark .button_top {
+    color: white;
+}
+
+/* Botões no tema claro */
+.operator .button_top {
+    background-color: #d4d4d4;
+}
+
+.operator:hover .button_top,
+.operator.pressed .button_top {
+    background: #9E9E9E;
+}
+
+.util .button_top {
+    background-color: #9E9E9E;
+}
+
+.util:hover .button_top,
+.util.pressed .button_top {
+    background: #757575;
+}
+
+.numeric .button_top {
+    background-color: #f4f4f4;
+}
+
+.numeric:hover .button_top,
+.numeric.pressed .button_top {
+    background: #e0e0e0;
+}
+
+.calculate .button_top {
+    background-color: #424242;
+}
+
+.calculate:hover .button_top,
+.calculate.pressed .button_top {
+    background: #333333;
+}
+
+/* Botões no tema escuro */
+body.dark .btn-calculator {
+    background: #2e2e2e;
+}
+
+body.dark .button_top {
+    border: 2px solid #2e2e2e;
+}
+
+body.dark .operator .button_top {
+    background-color: #616161;
+}
+
+body.dark .operator:hover .button_top,
+body.dark .operator.pressed .button_top {
+    background-color: #757575;
+}
+
+body.dark .util .button_top {
+    background-color: #757575;
+}
+
+body.dark .util:hover .button_top,
+body.dark .util.pressed .button_top {
+    background-color: #9E9E9E;
+}
+
+body.dark .numeric .button_top {
+    background-color: #424242;
+}
+
+body.dark .numeric:hover .button_top,
+body.dark .numeric.pressed .button_top {
+    background-color: #616161;
+}
+
+body.dark .calculate .button_top {
+    background-color: #F5F5F5;
+    color: #212121;
+}
+
+body.dark .calculate:hover .button_top,
+body.dark .calculate.pressed .button_top {
+    background-color: #E0E0E0;
+    color: #212121;
+}
+
+/* Botões no tema antigo */
+body.old .util,
+body.old .calculate {
+    background: #343F5B;
+}
+
+body.old .util .button_top,
+body.old .calculate .button_top {
+    color: white;
+    border: 2px solid #343F5B;
+    background-color: #657296;
+}
+
+body.old .util:hover .button_top,
+body.old .calculate:hover .button_top,
+body.old .util.pressed .button_top,
+body.old .calculate.pressed .button_top {
+    background-color: rgb(107, 130, 189);
+}
+
+body.old .numeric,
+body.old .operator {
+    background: #A6A1A3;
+}
+
+body.old .numeric .button_top,
+body.old .operator .button_top {
+    border: 2px solid #A6A1A3;
+    background-color: #E9E3DC;
+}
+
+body.old .numeric:hover .button_top,
+body.old .operator:hover .button_top,
+body.old .numeric.pressed .button_top,
+body.old .operator.pressed .button_top {
+    background-color: #ffffff;
+}

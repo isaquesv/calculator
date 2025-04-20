@@ -1,0 +1,22 @@
+#display {
+    height: 80px;
+    margin-bottom: 20px;
+    font-size: 35px;
+    text-align: right;
+    
+    border: 2px solid #1e1e1e;
+    border-radius: 12px;
+    overflow-x: auto;
+    transition: 0.3s ease-in-out;
+}
+
+body.dark #display {
+    color: white;
+    background-color: #424242;
+}
+
+body.old #display {
+    color: white;
+    border: 2px solid #191F32;
+    background-color: #191F32;
+}

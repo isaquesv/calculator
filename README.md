@@ -1,7 +1,50 @@
-# Calculator
-Uma calculadora simples, desenvolvida com <b>HTML, CSS, Bootstrap e JavaScript</b>, que realiza as quatro operações básicas e permite armazenar e reutilizar temporariamente seus cálculos.
 
-Você pode experimentar esta calculadora diretamente [aqui](https://isaquesv.github.io/Calculator/).
+# Calculadora
 
-![calculator](https://github.com/user-attachments/assets/afc6cf5b-3da6-48c9-b519-e5554f6ff72b)
-![history](https://github.com/user-attachments/assets/b8992517-7a8b-45c6-949d-fcef0ca8064f)
+Calculadora web com suporte a três temas (claro, escuro e antigo). É um remake da versão anterior, preservando seu visual original no tema "antigo". Realiza operações com números decimais, incluindo as quatro operações básicas, porcentagens e fatoriais.
+
+## Screenshots
+
+
+
+## Comandos via teclado
+
+Lista dos comandos via teclado disponíveis para a utilização da calculadora.
+
+| **Tecla**               | **Descrição**                                                |
+| ----------------------- | ------------------------------------------------------------ |
+| `Delete` ou `C`         | Limpa toda a expressão atual.                                |
+| `Backspace`             | Apaga o último caractere digitado.                           |
+| `%`                     | Adiciona a operação de porcentagem na expressão.             |
+| `!`                     | Adiciona a operação de fatorial na expressão.                |
+| `0-9`                   | Adiciona o valor numérico na expressão.                      |
+| `/`                     | Adiciona a operação de divisão na expressão.                 |
+| `x` ou `*`              | Adiciona a operação de multiplicação na expressão.           |
+| `-`                     | Adiciona a operação de subtração ou indica um número negativo na expressão. |
+| `+`                     | Adiciona a operação de soma na expressão.                    |
+| `.` ou `,`              | Adiciona o ponto como separador decimal na expressão.        |
+| `_` ou `F9`             | Altera o sinal do último número inserido na expressão.       |
+| `=` ou `Enter`          | Realiza o cálculo e exibe o resultado da expressão inserida. |
+
+
+## Stack utilizada
+
+### **Frontend:** HTML, CSS, Bootstrap e JavaScript.
+[![My Skills](https://skillicons.dev/icons?i=html,css,bootstrap,js)](https://skillicons.dev)
+
+### **Backend:** JavaScript.  
+[![My Skills](https://skillicons.dev/icons?i=js)](https://skillicons.dev)
+## Rodando o projeto
+
+Você pode acessar a calculadora clicando [neste link](https://isaquesv.github.io/calculator/).
+## Suporte
+
+Para suporte, caso você encontre algum problema, tenha sugestões de melhorias ou algo do tipo, fique à vontade para adicionar uma **issue** [clicando aqui](https://github.com/isaquesv/calculator/issues/new)!
+
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Autores
+
+- [@isaquesv](https://www.github.com/isaquesv)

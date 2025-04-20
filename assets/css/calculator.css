@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 488px;
+    padding: 0;
+    align-items: center;
+}
+
+#calculator {
+    max-width: 480px;
+    width: 100%;
+    padding: 33px 24px;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 2px solid #1e1e1e;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease-in-out;
+}
+#calculator:hover {
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15), 0 6px 8px rgba(0, 0, 0, 0.07);
+}
+
+body.dark #calculator {
+    border: 2px solid #2A2A2A;
+    background: #202020;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+body.old #calculator {
+    border: 2px solid #1e2741;
+    background: #252D44;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#calculator-controls {
+    display: flex;
+    padding: 0 4px;
+    margin-bottom: 12px;
+    justify-content: space-between;
+}
+
+#calculator-controls .form-select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #2A2A2A;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+body.dark #calculator-controls .form-select {
+    color: white;
+    background-color: #424242;
+}
+
+body.old #calculator-controls .form-select {
+    color: white;
+    border: 2px solid #191F32;
+    background-color: #191F32;
+}
+
+@media screen and (max-width: 425px) {
+    #calculator-controls .form-select {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #calculator {
+        max-width: 100%;
+        padding: 28px 8px;
+    }
+}
