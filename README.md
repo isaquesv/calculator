@@ -5,6 +5,8 @@ Calculadora web com suporte a três temas (claro, escuro e antigo). É um remake
 
 ## Screenshots
 
+![calculadoras](https://github.com/user-attachments/assets/cb6ea48d-e927-414a-b224-4d9c7126bbb0)
+
 
 
 ## Comandos via teclado
