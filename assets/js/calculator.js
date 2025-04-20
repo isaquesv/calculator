@@ -7,8 +7,22 @@ let isAnswerLastValue = false;
 const DISPLAY_ELEMENT = document.querySelector("#display");
 const CALCULATOR_BUTTONS = document.querySelectorAll(".btn-calculator");
 CALCULATOR_BUTTONS.forEach((CALCULATOR_BUTTON) => {
+    const BUTTON_VALUE = CALCULATOR_BUTTON.value;
+
     CALCULATOR_BUTTON.addEventListener("click", function () {
-        pressButton(CALCULATOR_BUTTON);
+        CALCULATOR_BUTTON.classList.add("active");
+
+        if (BUTTON_VALUE == "zero") {
+            validateValue("0");
+        } else {
+            validateValue(BUTTON_VALUE);
+        }
+
+        adjustDisplay();
+
+        setTimeout(() => {
+            CALCULATOR_BUTTON.classList.remove("active");
+        }, 100);
     });
 });
 
