@@ -92,12 +92,12 @@ body.dark .button_top {
 }
 
 .calculate .button_top {
-    background-color: #424242;
+    background-color: #6d6d6d;
 }
 
 .calculate:hover .button_top,
 .calculate.pressed .button_top {
-    background: #333333;
+    background: #535353;
 }
 
 /* Botões no tema escuro */

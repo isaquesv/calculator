@@ -75,13 +75,14 @@ function getButtonFromKey(key) {
 
 
 function validateValue(value) {
-    const EXPRESSION = document.querySelector("#display").value;
-    const LAST_CHARACTER = EXPRESSION.slice(-1);
+    let expression = DISPLAY_ELEMENT.value;
+    const LAST_CHARACTER = expression.slice(-1);
     let newDisplayValue;
     let invalidOperators;
 
     if (DISPLAY_ELEMENT.value == "Erro") {
         DISPLAY_ELEMENT.value = 0;
+        expression = DISPLAY_ELEMENT.value;
     }
 
     switch (value) {
@@ -95,18 +96,21 @@ function validateValue(value) {
         case "7":
         case "8":
         case "9":
-            newDisplayValue = getUpdatedDisplayNumericValue(EXPRESSION, EXPRESSION.length, DISPLAY_ELEMENT.value, isAnswerLastValue, LAST_CHARACTER, value);
+            newDisplayValue = getUpdatedDisplayNumericValue(expression, expression.length, DISPLAY_ELEMENT.value, isAnswerLastValue, LAST_CHARACTER, value);
             DISPLAY_ELEMENT.value = newDisplayValue;
 
             lastValue = getLastValue("numeric", newDisplayValue);
+            isAnswerLastValue = false;
             break;
 
         case "clearAll":
             deleteAllValues(DISPLAY_ELEMENT);
+            isAnswerLastValue = false;
             break;
 
         case "backspace":
-            deleteLastValue(EXPRESSION, EXPRESSION.length, DISPLAY_ELEMENT);
+            deleteLastValue(expression, expression.length, DISPLAY_ELEMENT);
+            isAnswerLastValue = false;
             break;
 
         case ".":
@@ -114,6 +118,7 @@ function validateValue(value) {
             DISPLAY_ELEMENT.value = newDisplayValue;
 
             lastValue = getLastValue("decimal", newDisplayValue);
+            isAnswerLastValue = false;
             break;
 
         case "answer":
@@ -125,9 +130,10 @@ function validateValue(value) {
             break;
 
         case "changeSign":
-            newDisplayValue = getUpdatedDisplayChangeSignValue(EXPRESSION, DISPLAY_ELEMENT.value);
+            newDisplayValue = getUpdatedDisplayChangeSignValue(expression, DISPLAY_ELEMENT.value);
 
             DISPLAY_ELEMENT.value = newDisplayValue;
+            isAnswerLastValue = false;
             break;
 
         case "%":
@@ -136,6 +142,7 @@ function validateValue(value) {
             newDisplayValue = getUpdatedDisplayOperatorValue(invalidOperators, LAST_CHARACTER, DISPLAY_ELEMENT.value, value);
 
             DISPLAY_ELEMENT.value = newDisplayValue;
+            isAnswerLastValue = false;
             break;
 
         case "/":
@@ -144,6 +151,7 @@ function validateValue(value) {
             newDisplayValue = getUpdatedDisplayOperatorValue(invalidOperators, LAST_CHARACTER, DISPLAY_ELEMENT.value, value);
 
             DISPLAY_ELEMENT.value = newDisplayValue;
+            isAnswerLastValue = false;
             break;
 
         case "-":
@@ -151,24 +159,27 @@ function validateValue(value) {
             newDisplayValue = getUpdatedDisplayOperatorValue(invalidOperators, LAST_CHARACTER, DISPLAY_ELEMENT.value, value);
 
             DISPLAY_ELEMENT.value = newDisplayValue;
+            isAnswerLastValue = false;
             break;
 
         case "+":
-            invalidOperators = ["%", "/", "x", "-", "+", "."];
+            invalidOperators = ["/", "x", "-", "+", "."];
             newDisplayValue = getUpdatedDisplayOperatorValue(invalidOperators, LAST_CHARACTER, DISPLAY_ELEMENT.value, value);
 
             DISPLAY_ELEMENT.value = newDisplayValue;
+            isAnswerLastValue = false;
             break;
 
         case "calculate":
-            processExpression(EXPRESSION, DISPLAY_ELEMENT);
+            processexpression(expression, DISPLAY_ELEMENT);
+            isAnswerLastValue = false;
             break;
 
     }
 }
 
 function getUpdatedDisplayNumericValue(expression, expressionLength, displayValue, isAnswerLastValue, lastCharacter, value) {
-    if (expressionLength == 1 && expression == "0") {
+    if (expressionLength == 1 && expression == 0) {
         return value;
     } else if (isAnswerLastValue) {
         isAnswerLastValue = false;
@@ -178,6 +189,8 @@ function getUpdatedDisplayNumericValue(expression, expressionLength, displayValu
         } else {
             return displayValue + "x" + value;
         }
+    } else if (lastCharacter == "!") {
+        return displayValue + "x" + value;
     } else {
         return displayValue + value;
     }
@@ -214,9 +227,15 @@ function getUpdatedDisplayDecimalValue(lastCharacter, displayValue, value) {
         } else {
             return displayValue + "0" + value;
         }
-    } else if (lastCharacter !== value && !/\d+\.\d*$/.test(displayValue.split(/[\+\-\*\/]/).pop())) {
+    } 
+    
+    // Se a expressão não contém um ponto decimal
+    else if (lastCharacter !== value && !/\.\d*$/.test(displayValue.split(/[\+\-\*\/]/).pop())) {
         return displayValue + value;
     }
+
+    // Se já houver um ponto decimal na parte atual, evita adicionar outro ponto
+    return displayValue;
 }
 
 function getUpdatedDisplayAnswerValue(displayLength, displayValue, lastCharacter) {
@@ -236,83 +255,98 @@ function getUpdatedDisplayChangeSignValue(expression, displayValue) {
         } else {
             return "-";
         }
-    } else {
-        // Pegando o último número com sinal, se houver operador antes
-        const match = displayValue.match(/([+\-x\/])(-?\d*\.?\d*)$/);
+    }
 
-        if (match) {
-            const OPERATOR = match[1];
-            const NUMBER = match[2];
-            let inverted = "";
-
-            // Alternando o sinal do número
-            if (NUMBER.startsWith("-")) {
-                inverted = NUMBER.slice(1);
-            } else {
-                inverted = "-" + NUMBER;
-            }
-
-            // Retornando o operador + número invertido
-            return displayValue.slice(0, match.index + 1) + inverted;
+    if (/^-?\d*\.?\d*$/.test(displayValue)) {
+        if (displayValue.startsWith("-")) {
+            return displayValue.slice(1);
         } else {
-            // Invertendo o valor inteiro se não houver operador antes
-            if (displayValue.startsWith("-")) {
-                return displayValue.slice(1);
-            } else {
-                return "-" + displayValue;
-            }
+            return "-" + displayValue;
+        }
+    }
+
+    // Pegando o último número com sinal, se houver operador antes
+    const match = displayValue.match(/([+\-x\/])(-?\d*\.?\d*)$/);
+
+    if (match) {
+        const OPERATOR = match[1];
+        const NUMBER = match[2];
+        let inverted = "";
+
+        // Alternando o sinal do número
+        if (NUMBER.startsWith("-")) {
+            inverted = NUMBER.slice(1);
+        } else {
+            inverted = "-" + NUMBER;
+        }
+
+        // Retornando o operador + número invertido
+        return displayValue.slice(0, match.index + 1) + inverted;
+    } else {
+        // Invertendo o valor inteiro se não houver operador antes
+        if (displayValue.startsWith("-")) {
+            return displayValue.slice(1);
+        } else {
+            return "-" + displayValue;
         }
     }
 }
 
 function getUpdatedDisplayOperatorValue(invalidOperators, lastCharacter, displayValue, value) {
-    if (!invalidOperators.includes(lastCharacter)) {
+    if (value == "-" && displayValue == 0 && displayValue.length == 1) {
+        return value;
+    } else if (!invalidOperators.includes(lastCharacter)) {
         return displayValue + value;
     }
 
     return displayValue;
 }
 
-function processExpression(expression, displayElement) {
-    let calculationResult = expression.replaceAll("x", "*");
+function processexpression(expression, displayElement) {
+    try {
+        let calculationResult = expression.replaceAll("x", "*");
 
-    // Substituindo fatoriais
-    calculationResult = calculationResult.replace(/(\d+)!/g, function (_, number) {
-        const factorial = calculateFactorial(parseInt(number));
-        if (factorial == null) {
-            displayElement.value = "Erro";
-            answer = 0;
-            lastValue = 0;
-            return "";
+        // Substituindo fatoriais
+        calculationResult = calculationResult.replace(/(-?\d+)!/g, function (_, number) {
+            const n = parseInt(number);
+            if (n < 0) {
+                displayElement.value = "Erro";
+                answer = 0;
+                lastValue = 0;
+                return "";
+            }
+
+            const factorial = calculateFactorial(n);
+            return factorial;
+        });
+
+        // Porcentagem de outro valor (50%100 -> (50 * 0.01 * 100))
+        calculationResult = calculationResult.replace(/(\d+(?:\.\d+)?)%(\d+(?:\.\d+)?)/g, function (_, percent, ofValue) {
+            return (percent * 0.01 * ofValue).toString();
+        });
+
+        // Porcentagem isolada (10% -> (10 * 0.01))
+        calculationResult = calculationResult.replace(/(\d+(?:\.\d+)?)%/g, function (_, number) {
+            return (number * 0.01).toString();
+        });
+
+        const result = eval(calculationResult);
+        if (isNaN(result) || !isFinite(result)) {
+            throw new Error("Cálculo inválido");
         }
-        return factorial;
-    });
 
-    // Substituindo porcentagens
-    calculationResult = calculationResult.replace(/(\d+)%/g, function (_, number) {
-        return (parseFloat(number) * 0.01);
-    });
-
-    // Validando a expressão
-    if (/[^0-9+\-*/().!^%]/.test(calculationResult)) {
-        displayElement.value = "Erro";
-        answer = 0;
-        lastValue = 0;
-        return;
-    }
-
-    // Avaliando resultado final
-    const result = eval(calculationResult);
-    if (isNaN(result) || result == Infinity || result == -Infinity) {
-        displayElement.value = "Erro";
-        answer = 0;
-        lastValue = 0;
-    } else {
         displayElement.value = result;
         answer = result;
         lastValue = result;
+    } catch (err) {
+        displayElement.value = "Erro";
+        answer = 0;
+        lastValue = 0;
     }
+
+    isAnswerLastValue = false;
 }
+
 
 function calculateFactorial(number) {
     if (number == 0 || number == 1) {
