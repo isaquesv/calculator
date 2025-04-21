@@ -1,7 +1,7 @@
 
 # Calculadora
 
-Calculadora web com suporte a três temas (claro, escuro e antigo). É um remake da versão anterior, preservando seu visual original no tema "antigo". Realiza operações com números decimais, incluindo as quatro operações básicas, porcentagens e fatoriais.
+Calculadora web com suporte a três temas (claro, escuro e antigo). Este projeto é um remake da versão anterior, preservando seu visual original no tema "antigo". A calculadora realiza operações com números decimais, incluindo as quatro operações básicas, porcentagens e fatoriais.
 
 ## Screenshots
 
@@ -11,7 +11,13 @@ Calculadora web com suporte a três temas (claro, escuro e antigo). É um remake
 - Escolha de tema
 - Layout responsivo para desktop e mobile
 - Entrada por teclado físico
-- Operações: + (adição), – (subtração), x (multiplicação), / (divisão), % (porcentagem) e n! (fatorial)
+- Suporte a:
+  - Adição (+)
+  - Subtração (–)
+  - Multiplicação (×)
+  - Divisão (÷)
+  - Porcentagem (%)
+  - Fatorial (n!)
 - Alteração de sinal (+/–)
 - Botão "Ans" para reutilizar o último resultado
 - Limpar expressão ou apagar último valor
