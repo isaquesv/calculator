@@ -7,7 +7,15 @@ Calculadora web com suporte a três temas (claro, escuro e antigo). É um remake
 
 ![calculadoras](https://github.com/user-attachments/assets/cb6ea48d-e927-414a-b224-4d9c7126bbb0)
 
-
+## Funcionalidades
+- Escolha de tema
+- Layout responsivo para desktop e mobile
+- Entrada por teclado físico
+- Operações: + (adição), – (subtração), x (multiplicação), / (divisão), % (porcentagem) e n! (fatorial)
+- Alteração de sinal (+/–)
+- Botão "Ans" para reutilizar o último resultado
+- Limpar expressão ou apagar último valor
+- Suporte a expressões complexas
 
 ## Comandos via teclado
 
