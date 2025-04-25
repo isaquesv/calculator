@@ -3,9 +3,23 @@
 
 Calculadora web com suporte a três temas (claro, escuro e antigo). Este projeto é um remake da versão anterior, preservando seu visual original no tema "antigo". A calculadora realiza operações com números decimais, incluindo as quatro operações básicas, porcentagens e fatoriais.
 
+---
+
 ## Screenshots
 
 ![calculadoras](https://github.com/user-attachments/assets/cb6ea48d-e927-414a-b224-4d9c7126bbb0)
+
+---
+
+## Deploy
+
+Para acessar o deploy desse projeto basta *[clicar aqui](https://isaquesv.github.io/calculator/)* ou acessar a seguinte URL:
+
+```
+  https://isaquesv.github.io/calculator/
+```
+
+---
 
 ## Funcionalidades
 - Escolha de tema
@@ -42,6 +56,7 @@ Lista dos comandos via teclado disponíveis para a utilização da calculadora.
 | `_` ou `F9`             | Altera o sinal do último número inserido na expressão.       |
 | `=` ou `Enter`          | Realiza o cálculo e exibe o resultado da expressão inserida. |
 
+---
 
 ## Stack utilizada
 
@@ -50,17 +65,20 @@ Lista dos comandos via teclado disponíveis para a utilização da calculadora.
 
 ### **Backend:** JavaScript.  
 [![My Skills](https://skillicons.dev/icons?i=js)](https://skillicons.dev)
-## Rodando o projeto
 
-Você pode acessar a calculadora clicando [neste link](https://isaquesv.github.io/calculator/).
+---
+
 ## Suporte
 
-Para suporte, caso você encontre algum problema, tenha sugestões de melhorias ou algo do tipo, fique à vontade para adicionar uma **issue** [clicando aqui](https://github.com/isaquesv/calculator/issues/new)!
+Para suporte, caso você encontre algum problema, tenha sugestões de melhorias ou algo do tipo, fique à vontade para adicionar uma **issue** *[clicando aqui](https://github.com/isaquesv/calculator/issues/new)*!
 
-## Licença
-
-[MIT](https://choosealicense.com/licenses/mit/)
+---
 
 ## Autores
 
-- [@isaquesv](https://www.github.com/isaquesv)
+- *[isaquesv](https://www.github.com/isaquesv)*
+
+## Licença
+
+- Este projeto está sob a licença *[MIT](https://choosealicense.com/licenses/mit/)*
+
