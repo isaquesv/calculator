@@ -7,7 +7,7 @@ Calculadora web com suporte a três temas (claro, escuro e antigo). Este projeto
 
 ## Screenshots
 
-![calculadoras](https://github.com/user-attachments/src/cb6ea48d-e927-414a-b224-4d9c7126bbb0)
+![calculadoras](https://github.com/isaquesv/calculator/blob/main/src/img/calculadoras.png)
 
 ---
 
