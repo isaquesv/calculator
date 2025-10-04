@@ -13,10 +13,10 @@ Calculadora web com suporte a três temas (claro, escuro e antigo). Este projeto
 
 ## Deploy
 
-Para acessar o deploy desse projeto basta *[clicar aqui](https://isaquesv.github.io/calculator/)* ou acessar a seguinte URL:
+Para acessar o deploy desse projeto basta *[clicar aqui](https://euisaquevenancio.github.io/calculator/)* ou acessar a seguinte URL:
 
 ```
-  https://isaquesv.github.io/calculator/
+  https://euisaquevenancio.github.io/calculator/
 ```
 
 ---
@@ -70,13 +70,13 @@ Lista dos comandos via teclado disponíveis para a utilização da calculadora.
 
 ## Suporte
 
-Para suporte, caso você encontre algum problema, tenha sugestões de melhorias ou algo do tipo, fique à vontade para adicionar uma **issue** *[clicando aqui](https://github.com/isaquesv/calculator/issues/new)*!
+Para suporte, caso você encontre algum problema, tenha sugestões de melhorias ou algo do tipo, fique à vontade para adicionar uma **issue** *[clicando aqui](https://github.com/euisaquevenancio/calculator/issues/new)*!
 
 ---
 
 ## Autores
 
-- *[isaquesv](https://www.github.com/isaquesv)*
+- *[euisaquevenancio](https://www.github.com/euisaquevenancio)*
 
 ## Licença
 
